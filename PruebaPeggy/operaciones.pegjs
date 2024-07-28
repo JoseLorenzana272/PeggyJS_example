@@ -16,8 +16,13 @@ Suma
     / Producto
 
 Producto
-    = num1:Numero "*" num2:Producto { return { tipo: "multiplicacion", num1, num2 } }
-    / num1:Numero "/" num2:Producto { return { tipo: "division", num1, num2 } }
+    = num1:Unario "*" num2:Producto { return { tipo: "multiplicacion", num1, num2 } }
+    / num1:Unario "/" num2:Producto { return { tipo: "division", num1, num2 } }
+    / Unario
+
+Unario
+    = "+" num:Numero { return num }
+    / "-" num:Numero { return { tipo: "negativo", num } }
     / Numero
 
 Cadena

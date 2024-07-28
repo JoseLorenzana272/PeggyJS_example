@@ -11,6 +11,8 @@ const recorrer = (nodo) => {
             return nodo.valor
         case 'numero':
             return nodo.valor
+        case 'negativo':
+            return -recorrer(nodo.num)
         case 'suma':
             return recorrer(nodo.num1) + recorrer(nodo.num2)
         case 'resta':
